@@ -409,6 +409,15 @@ extension URL: CustomJSONValue {
 }
 
 
+// MARK: - JSONCompatible Arrays
+
+extension Array where Element: JSONCompatible {
+    func jsonObjects() -> [JSONObject] {
+        return map { $0.jsonObject() }
+    }
+}
+
+
 // MARK: - Default Implementations
 
 extension JSONCompatible {

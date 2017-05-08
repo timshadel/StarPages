@@ -11,6 +11,13 @@ import Foundation
 
 struct Keys {
 
+    // MARK: Directory
+
+    static let individuals = "individuals"
+
+
+    // MARK: Individual
+
     static let firstName = "firstName"
     static let lastName = "lastName"
     static let affiliation = "affiliation"
