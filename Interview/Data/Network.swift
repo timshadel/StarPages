@@ -66,7 +66,7 @@ struct Network {
     func getImage(from url: URL, done: @escaping (Resolver<UIImage>) -> Void) {
         getData(from: url) { resolver in
             do {
-                let image = try resolver.value().flatMap { UIImage(data: $0) }
+                let image = UIImage(data: try resolver.value())
                 done(Resolver(value: image))
             } catch {
                 done(Resolver(error: error))
@@ -94,6 +94,18 @@ struct Network {
 
 struct Resolver<Value> {
 
+    enum ResolverError: Error, CustomStringConvertible {
+        case missingRequiredValue
+
+        var description: String {
+            switch self {
+            case .missingRequiredValue:
+                return "Missing required value."
+            }
+        }
+
+    }
+
     private let privateValue: Value?
     private var error: Error?
 
@@ -107,16 +119,21 @@ struct Resolver<Value> {
         self.error = error
     }
 
-    func value() throws -> Value? {
+    func optionalValue() throws -> Value? {
         if let error = error {
             throw error
         }
         return privateValue
     }
 
+    func value() throws -> Value {
+        guard let value = try optionalValue() else { throw ResolverError.missingRequiredValue }
+        return value
+    }
+
     func map<T>(_ done: (Resolver<T>) -> Void, transform: (Value?) throws -> T?) {
         do {
-            let result = try transform(try value())
+            let result = try transform(try optionalValue())
             done(Resolver<T>(value: result))
         } catch {
             done(Resolver<T>(error: error))

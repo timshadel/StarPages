@@ -11,12 +11,20 @@ import Foundation
 
 struct LoadIndividuals {
 
+    private static let directoryURL = URL(string: "https://edge.ldscdn.org/mobile/interview/directory")!
+
     var database: Database = JSONDatabase.shared
 
     func execute() {
-        database.update(with: [
-            MockData.luke
-        ])
+        Network.general.getJSON(from: LoadIndividuals.directoryURL) { resolver in
+            do {
+                let directory = try resolver.value()
+                let individuals: [Individual] = try directory.value(for: Keys.individuals)
+                self.database.update(with: individuals)
+            } catch {
+                Logger.error("at=download-directory status=error url=\(LoadIndividuals.directoryURL) error=\(error)")
+            }
+        }
     }
 
 }

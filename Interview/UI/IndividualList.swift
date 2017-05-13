@@ -36,6 +36,7 @@ class IndividualList: UIViewController {
     override func viewDidLoad() {
         tableView.tableFooterView = UIView()
         tableView.addSubview(refreshControl)
+        handleRefresh()
     }
 
     override func viewWillAppear(_ animated: Bool) {
