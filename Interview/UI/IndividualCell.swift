@@ -16,8 +16,10 @@ class IndividualCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var teamLabel: UILabel!
 
-    func configure(with person: Individual) {
-        
+    func configure(with person: Individual, image: UIImage?) {
+        nameLabel.text = "\(person.firstName) \(person.lastName)"
+        teamLabel.text = person.affiliation.rawValue
+        profilePicView.image = image
     }
 
 }

@@ -94,10 +94,23 @@ extension IndividualList: UITableViewDelegate {
 extension IndividualList: Subscriber {
 
     func update(with database: Database) {
-        dataSource.individuals = database.individuals
         if dataSource.individuals.count == 0 {
+            dataSource.individuals = []
+            dataSource.images = [:]
             showEmptyState()
         } else {
+            dataSource.individuals = database.individuals
+            for individual in dataSource.individuals {
+                let imageURL = individual.profilePictureURL
+                guard dataSource.images[imageURL] == nil else { continue }
+                Network.general.getImage(from: imageURL) { resolver in
+                    do {
+                        self.dataSource.images[imageURL] = try resolver.value()
+                    } catch {
+                        print(error)
+                    }
+                }
+            }
             showIndividualListState()
         }
         refreshControl.endRefreshing()
