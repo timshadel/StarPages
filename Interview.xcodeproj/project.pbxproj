@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B00778311EC7ACF800695C9F /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00778301EC7ACF800695C9F /* Logger.swift */; };
 		B015742F1EBC0C5B00108C7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B015742E1EBC0C5B00108C7B /* AppDelegate.swift */; };
 		B01574311EBC0C5B00108C7B /* IndividualList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01574301EBC0C5B00108C7B /* IndividualList.swift */; };
 		B01574341EBC0C5B00108C7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B01574321EBC0C5B00108C7B /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B00778301EC7ACF800695C9F /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		B015742B1EBC0C5B00108C7B /* Interview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Interview.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B015742E1EBC0C5B00108C7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B01574301EBC0C5B00108C7B /* IndividualList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualList.swift; sourceTree = "<group>"; };
@@ -59,6 +61,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B007782F1EC7ACC100695C9F /* Logging */ = {
+			isa = PBXGroup;
+			children = (
+				B00778301EC7ACF800695C9F /* Logger.swift */,
+			);
+			name = Logging;
+			sourceTree = "<group>";
+		};
 		B01574221EBC0C5B00108C7B = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +125,7 @@
 			children = (
 				B0369A851EC09CBD00B163D2 /* Constants */,
 				B0369A7D1EBEA7FA00B163D2 /* Extensions */,
+				B007782F1EC7ACC100695C9F /* Logging */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -256,6 +267,7 @@
 				B0369A831EC09CA500B163D2 /* Strings.swift in Sources */,
 				B015744F1EBC11F100108C7B /* Keys.swift in Sources */,
 				B0369A771EBC216900B163D2 /* Database.swift in Sources */,
+				B00778311EC7ACF800695C9F /* Logger.swift in Sources */,
 				B01574311EBC0C5B00108C7B /* IndividualList.swift in Sources */,
 				B015742F1EBC0C5B00108C7B /* AppDelegate.swift in Sources */,
 				B0369A8E1EC0D64C00B163D2 /* Network.swift in Sources */,

@@ -77,8 +77,8 @@ class IndividualList: UIViewController {
     }
 
     fileprivate func showIndividualListState() {
-        tableView.backgroundView = nil
         showEmptyState()
+        tableView.backgroundView = nil
     }
 
 }
@@ -94,20 +94,22 @@ extension IndividualList: UITableViewDelegate {
 extension IndividualList: Subscriber {
 
     func update(with database: Database) {
-        if dataSource.individuals.count == 0 {
+        if database.individuals.count == 0 {
             dataSource.individuals = []
             dataSource.images = [:]
             showEmptyState()
         } else {
             dataSource.individuals = database.individuals
-            for individual in dataSource.individuals {
+            for (index, individual) in dataSource.individuals.enumerated() {
                 let imageURL = individual.profilePictureURL
                 guard dataSource.images[imageURL] == nil else { continue }
                 Network.general.getImage(from: imageURL) { resolver in
                     do {
                         self.dataSource.images[imageURL] = try resolver.value()
+                        self.tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+                        Logger.debug("at=process-image status=success url=\(imageURL)")
                     } catch {
-                        print(error)
+                        Logger.error("at=process-image status=error url=\(imageURL) error=\(error)")
                     }
                 }
             }

@@ -61,15 +61,15 @@ class JSONDatabase: Database {
             let data = try Data(contentsOf: JSONDatabase.fileURL)
             let json = try JSONObject.from(data)
             self.individuals = try json.value(for: Keys.individuals)
-            print("at=database-load status=success individuals.count=\(individuals.count)")
+            Logger.debug("at=database-load status=success individuals.count=\(individuals.count)")
         } catch let error as CocoaError {
             if case CocoaError.fileReadNoSuchFile = error.code {
-                print("at=database-load status=success individuals.count=0")
+                Logger.debug("at=database-load status=success individuals.count=0")
             } else {
-                print("at=database-load status=error error.code=\(error.code.rawValue) error.description=\"\(error.localizedDescription)\" error.userInfo=\(error.userInfo)")
+                Logger.error("at=database-load status=error error.code=\(error.code.rawValue) error.description=\"\(error.localizedDescription)\" error.userInfo=\(error.userInfo)")
             }
         } catch {
-            print("at=database-load status=error file=\(JSONDatabase.fileURL) error=\(error)")
+            Logger.error("at=database-load status=error file=\(JSONDatabase.fileURL) error=\(error)")
         }
     }
 
@@ -95,9 +95,9 @@ class JSONDatabase: Database {
             ]
             let data = try json.jsonData()
             try data.write(to: JSONDatabase.fileURL, options: [.atomic])
-            print("at=database-archive status=success individuals.count=\(individuals.count) file=\(JSONDatabase.fileURL)")
+            Logger.debug("at=database-archive status=success individuals.count=\(individuals.count) file=\(JSONDatabase.fileURL)")
         } catch {
-            print("at=database-archive status=error individuals.count=\(individuals.count) file=\(JSONDatabase.fileURL) error=\(error)")
+            Logger.error("at=database-archive status=error individuals.count=\(individuals.count) file=\(JSONDatabase.fileURL) error=\(error)")
         }
     }
 

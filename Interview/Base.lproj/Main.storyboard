@@ -54,6 +54,9 @@
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NuB-fD-AiK">
                                                             <rect key="frame" x="0.0" y="0.0" width="53" height="65"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="53" id="bDi-cN-QXU"/>
+                                                            </constraints>
                                                         </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="L2D-Kf-BlR">
                                                             <rect key="frame" x="61" y="11.5" width="281" height="42.5"/>
