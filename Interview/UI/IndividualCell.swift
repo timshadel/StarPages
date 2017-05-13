@@ -16,10 +16,10 @@ class IndividualCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var teamLabel: UILabel!
 
-    func configure(with person: Individual, image: UIImage?) {
-        nameLabel.text = "\(person.firstName) \(person.lastName)"
-        teamLabel.text = person.affiliation.rawValue
-        profilePicView.image = image
+    func configure(with individual: Individual) {
+        nameLabel.text = individual.fullName
+        teamLabel.text = individual.affiliation.rawValue
+        profilePicView.image = individual.profileImage
     }
 
 }

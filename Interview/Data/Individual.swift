@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 
 enum Affiliation: String {
@@ -25,6 +26,10 @@ struct Individual: JSONCompatible {
     let birthdate: Date
     let forceSensitive: Bool
     let profilePictureURL: URL
+    var profileImage: UIImage?
+    var fullName: String {
+        return "\(firstName) \(lastName)"
+    }
 
     init(json: JSONObject) throws {
         self.firstName = try json.value(for: Keys.firstName)

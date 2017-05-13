@@ -13,10 +13,21 @@ import UIKit
 class IndividualListDataSource: NSObject, UITableViewDataSource {
 
     /// List of individuals that will be displayed
-    var individuals = [Individual]()
+    var individuals = [Individual]() {
+        didSet {
+            resolveImages()
+        }
+    }
 
     /// Simple cache of images
-    var images = [URL:UIImage]()
+    var images = [URL:UIImage]() {
+        didSet {
+            resolveImages()
+        }
+    }
+
+    /// List of individuals with images
+    private var resolved = [Individual]()
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return individuals.count
@@ -24,9 +35,17 @@ class IndividualListDataSource: NSObject, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: IndividualCell.self), for: indexPath) as! IndividualCell
-        let individual = individuals[indexPath.row]
-        cell.configure(with: individual, image: images[individual.profilePictureURL])
+        let individual = resolved[indexPath.row]
+        cell.configure(with: individual)
         return cell
+    }
+
+    private func resolveImages() {
+        resolved = individuals.map { individual in
+            var person = individual
+            person.profileImage = images[person.profilePictureURL]
+            return person
+        }
     }
 
 }

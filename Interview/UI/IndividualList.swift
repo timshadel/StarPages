@@ -98,6 +98,7 @@ extension IndividualList: Subscriber {
             dataSource.individuals = []
             dataSource.images = [:]
             showEmptyState()
+            Logger.debug("at=update-list status=empty")
         } else {
             dataSource.individuals = database.individuals
             for (index, individual) in dataSource.individuals.enumerated() {
@@ -114,6 +115,7 @@ extension IndividualList: Subscriber {
                 }
             }
             showIndividualListState()
+            Logger.debug("at=update-list count=\(dataSource.individuals.count)")
         }
         refreshControl.endRefreshing()
         tableView.reloadData()
