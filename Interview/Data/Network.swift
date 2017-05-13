@@ -41,23 +41,23 @@ struct Network {
     func getData(from url: URL, done: @escaping (Resolver<Data>) -> Void) {
         let task = session.dataTask(with: url) { data, response, error in
             if let error = error {
-                done(Resolver(error: error))
+                DispatchQueue.main.async { done(Resolver(error: error)) }
                 return
             }
             guard let response = response as? HTTPURLResponse else {
-                done(Resolver(error: Network.ProgrammingError.responseNotHTTP))
+                DispatchQueue.main.async { done(Resolver(error: Network.ProgrammingError.responseNotHTTP)) }
                 return
             }
             switch response.statusCode {
             case 400, 422:
-                done(Resolver(error: RequestError.badRequest(detail: data.map(self.forceJSON))))
+                DispatchQueue.main.async { done(Resolver(error: RequestError.badRequest(detail: data.map(self.forceJSON)))) }
             case 404, 410:
-                done(Resolver(error: RequestError.notFound))
+                DispatchQueue.main.async { done(Resolver(error: RequestError.notFound)) }
             case 200..<300:
-                done(Resolver(value: data))
+                DispatchQueue.main.async { done(Resolver(value: data)) }
             default:
                 // TODO: What about other status codes?
-                done(Resolver(value: data))
+                DispatchQueue.main.async { done(Resolver(value: data)) }
             }
         }
         task.resume()
