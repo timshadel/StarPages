@@ -23,6 +23,7 @@
 		B0369A831EC09CA500B163D2 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0369A821EC09CA500B163D2 /* Strings.swift */; };
 		B0369A881EC0A0DC00B163D2 /* LoadIndividuals.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0369A871EC0A0DC00B163D2 /* LoadIndividuals.swift */; };
 		B0369A8A1EC0A1CA00B163D2 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0369A891EC0A1CA00B163D2 /* MockData.swift */; };
+		B0369A8E1EC0D64C00B163D2 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0369A8D1EC0D64C00B163D2 /* Network.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		B0369A821EC09CA500B163D2 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		B0369A871EC0A0DC00B163D2 /* LoadIndividuals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadIndividuals.swift; sourceTree = "<group>"; };
 		B0369A891EC0A1CA00B163D2 /* MockData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		B0369A8D1EC0D64C00B163D2 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 			children = (
 				B0369A761EBC216900B163D2 /* Database.swift */,
 				B015744C1EBC10D000108C7B /* Individual.swift */,
+				B0369A8D1EC0D64C00B163D2 /* Network.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 				B0369A771EBC216900B163D2 /* Database.swift in Sources */,
 				B01574311EBC0C5B00108C7B /* IndividualList.swift in Sources */,
 				B015742F1EBC0C5B00108C7B /* AppDelegate.swift in Sources */,
+				B0369A8E1EC0D64C00B163D2 /* Network.swift in Sources */,
 				B0369A881EC0A0DC00B163D2 /* LoadIndividuals.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
