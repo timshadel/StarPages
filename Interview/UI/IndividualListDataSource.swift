@@ -35,11 +35,15 @@ class IndividualListDataSource: NSObject, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: IndividualCell.self), for: indexPath) as! IndividualCell
-        let individual = resolved[indexPath.row]
+        let individual = item(at: indexPath)
         cell.configure(with: individual)
         return cell
     }
 
+    func item(at path: IndexPath) -> Individual {
+        return resolved[path.row]
+    }
+    
     private func resolveImages() {
         resolved = individuals.map { individual in
             var person = individual

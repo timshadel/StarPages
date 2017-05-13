@@ -86,6 +86,12 @@ class IndividualList: UIViewController {
 
 extension IndividualList: UITableViewDelegate {
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? IndividualDetails, let indexPath = tableView.indexPathForSelectedRow {
+            destination.individual = dataSource.item(at: indexPath)
+        }
+    }
+
 }
 
 
