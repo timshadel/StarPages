@@ -20,7 +20,7 @@ class IndividualListDataSource: NSObject, UITableViewDataSource {
     }
 
     /// Simple cache of images
-    var images = [URL:UIImage]() {
+    var imageRequests = [URL:Request<UIImage>]() {
         didSet {
             resolveImages()
         }
@@ -46,8 +46,14 @@ class IndividualListDataSource: NSObject, UITableViewDataSource {
     
     private func resolveImages() {
         resolved = individuals.map { individual in
+            guard let request = imageRequests[individual.profilePictureURL] else { return individual }
             var person = individual
-            person.profileImage = images[person.profilePictureURL]
+            switch request {
+            case .ready, .waiting, .failed:
+                person.profileImage = nil
+            case let .resolved(image):
+                person.profileImage = image
+            }
             return person
         }
     }

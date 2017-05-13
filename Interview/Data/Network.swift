@@ -142,102 +142,10 @@ struct Resolver<Value> {
 
 }
 
-extension URL {
 
-    func getData(done: @escaping (Resolver<Data>) -> Void) {
-        Network.general.getData(from: self) { r in done(r) }
-    }
-
-    func getImage(done: @escaping (Resolver<UIImage>) -> Void) {
-        Network.general.getImage(from: self) { r in done(r) }
-    }
-
-    func getJSON(done: @escaping (Resolver<JSONObject>) -> Void) {
-        Network.general.getJSON(from: self) { r in done(r) }
-    }
-
-}
-
-
-// MARK: - Playground
-
-protocol ResolverP {
-    associatedtype ValueType
-    init(value: ValueType?)
-    init(error: Error)
-    func value() throws -> ValueType?
-}
-
-
-struct SimpleResolver<Value>: ResolverP {
-    typealias ValueType = Value
-
-    private let privateValue: Value?
-    private var error: Error?
-
-    init(value: Value?) {
-        self.privateValue = value
-        self.error = nil
-    }
-
-    init(error: Error) {
-        self.privateValue = nil
-        self.error = error
-    }
-
-    func value() throws -> Value? {
-        if let error = error {
-            throw error
-        }
-        return privateValue
-    }
-    
-}
-
-protocol DataValue {
-    static func value(from data: Data) throws -> Self?
-}
-
-
-class Request<Value> {
-
-    enum State {
-        case ready
-        case waiting(since: Date)
-        case done
-    }
-
-    var url: URL
-    var state: State
-    private var value: Value?
-    private var error: Error?
-
-    init(url: URL) {
-        self.url = url
-        self.state = .ready
-    }
-
-    func execute() {
-        self.state = .waiting(since: Date())
-        Network.general.getData(from: url) { resolver in
-            self.state = .done
-            do {
-                let data: Data? = try resolver.value()
-//                self.value = try data.flatMap { try value(from: $0) }
-//                self.error = error
-            } catch {
-                self.error = error
-            }
-        }
-    }
-
-}
-
-
-extension UIImage: DataValue {
-
-    static func value(from data: Data) throws -> Self? {
-        return self.init(data: data)
-    }
-
+enum Request<Value> {
+    case ready
+    case waiting(since: Date)
+    case resolved(Value)
+    case failed
 }
