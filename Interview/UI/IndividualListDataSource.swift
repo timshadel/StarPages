@@ -49,10 +49,13 @@ class IndividualListDataSource: NSObject, UITableViewDataSource {
             guard let request = imageRequests[individual.profilePictureURL] else { return individual }
             var person = individual
             switch request {
-            case .ready, .waiting, .failed:
-                person.profileImage = nil
+            case .waiting:
+                // Could show spinner, or pulse like Facebook instead
+                break
             case let .resolved(image):
                 person.profileImage = image
+            case .failed:
+                person.profileImage = nil
             }
             return person
         }
