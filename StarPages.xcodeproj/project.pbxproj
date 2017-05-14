@@ -35,8 +35,8 @@
 		B00778321EC7B53B00695C9F /* IndividualDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndividualDetails.swift; sourceTree = "<group>"; };
 		B00778341EC7E36700695C9F /* Resolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resolver.swift; sourceTree = "<group>"; };
 		B00778361EC7E96E00695C9F /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
-		B015742B1EBC0C5B00108C7B /* Interview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Interview.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B015742E1EBC0C5B00108C7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B015742B1EBC0C5B00108C7B /* StarPages.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarPages.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B015742E1EBC0C5B00108C7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = StarPages/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
 		B01574301EBC0C5B00108C7B /* IndividualList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualList.swift; sourceTree = "<group>"; };
 		B01574331EBC0C5B00108C7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B01574351EBC0C5B00108C7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -47,7 +47,7 @@
 		B015744C1EBC10D000108C7B /* Individual.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Individual.swift; sourceTree = "<group>"; };
 		B015744E1EBC11F100108C7B /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		B01574501EBC1AE800108C7B /* Date+JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+JSON.swift"; sourceTree = "<group>"; };
-		B0369A741EBC1DC900B163D2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
+		B0369A741EBC1DC900B163D2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = StarPages/Info.plist; sourceTree = SOURCE_ROOT; };
 		B0369A761EBC216900B163D2 /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		B0369A7E1EBEA80800B163D2 /* FileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		B0369A821EC09CA500B163D2 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
@@ -78,7 +78,7 @@
 		B01574221EBC0C5B00108C7B = {
 			isa = PBXGroup;
 			children = (
-				B015742D1EBC0C5B00108C7B /* Interview */,
+				B015742D1EBC0C5B00108C7B /* StarPages */,
 				B015742C1EBC0C5B00108C7B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -86,12 +86,12 @@
 		B015742C1EBC0C5B00108C7B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B015742B1EBC0C5B00108C7B /* Interview.app */,
+				B015742B1EBC0C5B00108C7B /* StarPages.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B015742D1EBC0C5B00108C7B /* Interview */ = {
+		B015742D1EBC0C5B00108C7B /* StarPages */ = {
 			isa = PBXGroup;
 			children = (
 				B015742E1EBC0C5B00108C7B /* AppDelegate.swift */,
@@ -102,6 +102,7 @@
 				B01574431EBC0D8D00108C7B /* Resources */,
 				B01574441EBC0D9F00108C7B /* Frameworks */,
 			);
+			name = StarPages;
 			path = Interview;
 			sourceTree = "<group>";
 		};
@@ -114,8 +115,9 @@
 				B01574481EBC100D00108C7B /* IndividualListDataSource.swift */,
 				B00778321EC7B53B00695C9F /* IndividualDetails.swift */,
 			);
-			path = UI;
-			sourceTree = "<group>";
+			name = UI;
+			path = StarPages/UI;
+			sourceTree = SOURCE_ROOT;
 		};
 		B01574411EBC0CD200108C7B /* Data */ = {
 			isa = PBXGroup;
@@ -126,8 +128,9 @@
 				B00778341EC7E36700695C9F /* Resolver.swift */,
 				B00778361EC7E96E00695C9F /* Request.swift */,
 			);
-			path = Data;
-			sourceTree = "<group>";
+			name = Data;
+			path = StarPages/Data;
+			sourceTree = SOURCE_ROOT;
 		};
 		B01574421EBC0CDE00108C7B /* Infrastructure */ = {
 			isa = PBXGroup;
@@ -136,8 +139,9 @@
 				B0369A7D1EBEA7FA00B163D2 /* Extensions */,
 				B007782F1EC7ACC100695C9F /* Logging */,
 			);
-			path = Infrastructure;
-			sourceTree = "<group>";
+			name = Infrastructure;
+			path = StarPages/Infrastructure;
+			sourceTree = SOURCE_ROOT;
 		};
 		B01574431EBC0D8D00108C7B /* Resources */ = {
 			isa = PBXGroup;
@@ -146,8 +150,9 @@
 				B01574371EBC0C5B00108C7B /* LaunchScreen.storyboard */,
 				B0369A741EBC1DC900B163D2 /* Info.plist */,
 			);
-			path = Resources;
-			sourceTree = "<group>";
+			name = Resources;
+			path = StarPages/Resources;
+			sourceTree = SOURCE_ROOT;
 		};
 		B01574441EBC0D9F00108C7B /* Frameworks */ = {
 			isa = PBXGroup;
@@ -155,8 +160,8 @@
 				B01574451EBC0DBA00108C7B /* JSON */,
 			);
 			name = Frameworks;
-			path = Vendor;
-			sourceTree = "<group>";
+			path = StarPages/Vendor;
+			sourceTree = SOURCE_ROOT;
 		};
 		B01574451EBC0DBA00108C7B /* JSON */ = {
 			isa = PBXGroup;
@@ -190,15 +195,16 @@
 			children = (
 				B0369A871EC0A0DC00B163D2 /* LoadIndividuals.swift */,
 			);
-			path = Commands;
-			sourceTree = "<group>";
+			name = Commands;
+			path = StarPages/Commands;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B015742A1EBC0C5B00108C7B /* Interview */ = {
+		B015742A1EBC0C5B00108C7B /* StarPages */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B015743D1EBC0C5B00108C7B /* Build configuration list for PBXNativeTarget "Interview" */;
+			buildConfigurationList = B015743D1EBC0C5B00108C7B /* Build configuration list for PBXNativeTarget "StarPages" */;
 			buildPhases = (
 				B01574271EBC0C5B00108C7B /* Sources */,
 				B01574281EBC0C5B00108C7B /* Frameworks */,
@@ -208,9 +214,9 @@
 			);
 			dependencies = (
 			);
-			name = Interview;
+			name = StarPages;
 			productName = Interview;
-			productReference = B015742B1EBC0C5B00108C7B /* Interview.app */;
+			productReference = B015742B1EBC0C5B00108C7B /* StarPages.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -230,7 +236,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B01574261EBC0C5B00108C7B /* Build configuration list for PBXProject "Interview" */;
+			buildConfigurationList = B01574261EBC0C5B00108C7B /* Build configuration list for PBXProject "StarPages" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -243,7 +249,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B015742A1EBC0C5B00108C7B /* Interview */,
+				B015742A1EBC0C5B00108C7B /* StarPages */,
 			);
 		};
 /* End PBXProject section */
@@ -296,7 +302,7 @@
 				B01574331EBC0C5B00108C7B /* Base */,
 			);
 			name = Main.storyboard;
-			path = Interview;
+			path = StarPages;
 			sourceTree = SOURCE_ROOT;
 		};
 		B01574371EBC0C5B00108C7B /* LaunchScreen.storyboard */ = {
@@ -305,7 +311,7 @@
 				B01574381EBC0C5B00108C7B /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			path = Interview;
+			path = StarPages;
 			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXVariantGroup section */
@@ -411,9 +417,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2NT8T636RJ;
-				INFOPLIST_FILE = Interview/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/StarPages/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.timshadel.Interview;
+				PRODUCT_BUNDLE_IDENTIFIER = com.timshadel.StarPages;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -424,9 +430,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2NT8T636RJ;
-				INFOPLIST_FILE = Interview/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/StarPages/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.timshadel.Interview;
+				PRODUCT_BUNDLE_IDENTIFIER = com.timshadel.StarPages;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -435,7 +441,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B01574261EBC0C5B00108C7B /* Build configuration list for PBXProject "Interview" */ = {
+		B01574261EBC0C5B00108C7B /* Build configuration list for PBXProject "StarPages" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B015743B1EBC0C5B00108C7B /* Debug */,
@@ -444,7 +450,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B015743D1EBC0C5B00108C7B /* Build configuration list for PBXNativeTarget "Interview" */ = {
+		B015743D1EBC0C5B00108C7B /* Build configuration list for PBXNativeTarget "StarPages" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B015743E1EBC0C5B00108C7B /* Debug */,

@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B015742A1EBC0C5B00108C7B"
-               BuildableName = "Interview.app"
-               BlueprintName = "Interview"
-               ReferencedContainer = "container:Interview.xcodeproj">
+               BuildableName = "StarPages.app"
+               BlueprintName = "StarPages"
+               ReferencedContainer = "container:StarPages.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B015742A1EBC0C5B00108C7B"
-            BuildableName = "Interview.app"
-            BlueprintName = "Interview"
-            ReferencedContainer = "container:Interview.xcodeproj">
+            BuildableName = "StarPages.app"
+            BlueprintName = "StarPages"
+            ReferencedContainer = "container:StarPages.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B015742A1EBC0C5B00108C7B"
-            BuildableName = "Interview.app"
-            BlueprintName = "Interview"
-            ReferencedContainer = "container:Interview.xcodeproj">
+            BuildableName = "StarPages.app"
+            BlueprintName = "StarPages"
+            ReferencedContainer = "container:StarPages.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B015742A1EBC0C5B00108C7B"
-            BuildableName = "Interview.app"
-            BlueprintName = "Interview"
-            ReferencedContainer = "container:Interview.xcodeproj">
+            BuildableName = "StarPages.app"
+            BlueprintName = "StarPages"
+            ReferencedContainer = "container:StarPages.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

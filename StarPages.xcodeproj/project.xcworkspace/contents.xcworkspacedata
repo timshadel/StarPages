@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Interview.xcodeproj">
+      location = "self:/Users/timshadel/projects/timshadel/lds-interview/Interview/StarPages.xcodeproj">
    </FileRef>
 </Workspace>
