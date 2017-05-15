@@ -16,4 +16,12 @@ enum Request<Value> {
     case waiting(since: Date)
     case resolved(Value)
     case failed
+
+    func value() -> Value? {
+        if case let .resolved(value) = self {
+            return value
+        } else {
+            return nil
+        }
+    }
 }

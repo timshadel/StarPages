@@ -12,6 +12,8 @@ import UIKit
 
 class IndividualDetails: UIViewController {
 
+    // MARK: - UI properties
+
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var teamLabel: UILabel!
@@ -29,7 +31,7 @@ class IndividualDetails: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        profileImageView.image = individual?.profileImage
+        profileImageView.image = individual?.profileImageRequest?.value()
         nameLabel.text = individual?.fullName
         teamLabel.text = individual?.affiliation.rawValue
     }

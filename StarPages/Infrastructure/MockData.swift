@@ -23,7 +23,7 @@ struct MockData {
     ]
 
 
-    // MARK: Unmarshaled values
+    // MARK: Model values
 
     static let luke = try! Individual(json: lukeJSON)
 

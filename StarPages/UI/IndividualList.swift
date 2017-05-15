@@ -18,7 +18,7 @@ class IndividualList: UIViewController {
     @IBOutlet weak var loadingLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
-    lazy var refreshControl: UIRefreshControl = {
+    var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(handleRefresh), for: UIControlEvents.valueChanged)
         return refreshControl
@@ -85,6 +85,8 @@ class IndividualList: UIViewController {
 }
 
 
+// MARK: - Table view methods
+
 extension IndividualList: UITableViewDelegate {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -102,13 +104,14 @@ extension IndividualList: Subscriber {
 
     func update(with database: Database) {
         if database.individuals.count == 0 {
-            dataSource.individuals = []
+            dataSource.save(individuals: [])
             dataSource.imageRequests = [:]
             showEmptyState()
             Logger.debug("at=update-list status=empty")
         } else {
-            dataSource.individuals = database.individuals
-            for (index, individual) in dataSource.individuals.enumerated() {
+            dataSource.save(individuals: database.individuals)
+            for index in 0..<dataSource.count {
+                let individual = dataSource.item(at: IndexPath(row: index, section: 0))
                 let imageURL = individual.profilePictureURL
                 guard dataSource.imageRequests[imageURL] == nil else { continue }
                 dataSource.imageRequests[imageURL] = .waiting(since: Date())
@@ -124,7 +127,7 @@ extension IndividualList: Subscriber {
                 }
             }
             showIndividualListState()
-            Logger.debug("at=update-list count=\(dataSource.individuals.count)")
+            Logger.debug("at=update-list count=\(dataSource.count)")
         }
         refreshControl.endRefreshing()
         tableView.reloadData()

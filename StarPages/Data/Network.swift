@@ -12,24 +12,37 @@ import UIKit
 
 struct Network {
 
+    // MARK: - Types
+
     /// HTTP client errors
     enum ResponseError: LocalizedError {
         case responseNotHTTP
         case unexpectedStatus(code: Int, detail: Data?)
     }
 
+
+    // MARK: - Constants
+
     private static let successRange = 200..<300
 
     static let general = Network(configuration: URLSessionConfiguration.default)
+
+
+    // MARK: - Private properties
 
     private var session: URLSession
     private var sessionConfiguration: URLSessionConfiguration
 
 
+    // MARK: - Initialization
+
     init(configuration: URLSessionConfiguration = URLSessionConfiguration.default) {
         sessionConfiguration = configuration
         session = URLSession(configuration: configuration)
     }
+
+
+    // MARK: - Request methods
 
     func getData(from url: URL, done: @escaping (Resolver<Data>) -> Void) {
         let task = session.dataTask(with: url) { data, response, error in

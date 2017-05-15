@@ -11,9 +11,17 @@ import Foundation
 
 struct LoadIndividuals {
 
+    // MARK: - Constants
+
     private static let directoryURL = URL(string: "https://edge.ldscdn.org/mobile/interview/directory")!
 
+
+    // MARK: - Private properties
+
     var database: Database = JSONDatabase.shared
+
+
+    // MARK: - Command
 
     func execute() {
         Network.general.getJSON(from: LoadIndividuals.directoryURL) { resolver in

@@ -9,7 +9,7 @@
 import Foundation
 
 
-/// Capture the result of an asynchronous request
+/// Capture the result of an asynchronous function call
 struct Resolver<Value> {
 
     enum ResolverError: Error, CustomStringConvertible {

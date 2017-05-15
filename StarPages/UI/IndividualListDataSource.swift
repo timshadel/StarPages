@@ -12,22 +12,40 @@ import UIKit
 
 class IndividualListDataSource: NSObject, UITableViewDataSource {
 
-    /// List of individuals that will be displayed
-    var individuals = [Individual]() {
-        didSet {
-            resolveImages()
-        }
-    }
+    // MARK: - Data access
 
-    /// Simple cache of images
     var imageRequests = [URL:Request<UIImage>]() {
         didSet {
             resolveImages()
         }
     }
 
-    /// List of individuals with images
+    var count: Int {
+        return individuals.count
+    }
+
+    func item(at path: IndexPath) -> Individual {
+        return resolved[path.row]
+    }
+
+    func save(individuals: [Individual]) {
+        self.individuals = individuals
+    }
+
+
+    // MARK: - Private properties
+
+    private var individuals = [Individual]() {
+        didSet {
+            resolveImages()
+        }
+    }
+
+    /// List of individuals with images attached
     private var resolved = [Individual]()
+
+
+    // MARK: - Table view methods
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return individuals.count
@@ -40,23 +58,14 @@ class IndividualListDataSource: NSObject, UITableViewDataSource {
         return cell
     }
 
-    func item(at path: IndexPath) -> Individual {
-        return resolved[path.row]
-    }
-    
+
+    // MARK: - Helper methods
+
     private func resolveImages() {
         resolved = individuals.map { individual in
             guard let request = imageRequests[individual.profilePictureURL] else { return individual }
             var person = individual
-            switch request {
-            case .waiting:
-                // Could show spinner, or pulse like Facebook instead
-                break
-            case let .resolved(image):
-                person.profileImage = image
-            case .failed:
-                person.profileImage = nil
-            }
+            person.profileImageRequest = request
             return person
         }
     }

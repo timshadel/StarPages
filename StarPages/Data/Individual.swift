@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 
+/// List of teams for individuals
 enum Affiliation: String {
     case jedi = "JEDI"
     case resistance = "RESISTANCE"
@@ -18,6 +19,7 @@ enum Affiliation: String {
 }
 
 
+/// A person in the Star Wars universe
 struct Individual: JSONCompatible {
 
     let firstName: String
@@ -26,7 +28,7 @@ struct Individual: JSONCompatible {
     let birthdate: Date
     let forceSensitive: Bool
     let profilePictureURL: URL
-    var profileImage: UIImage?
+    var profileImageRequest: Request<UIImage>?
     var fullName: String {
         return "\(firstName) \(lastName)"
     }

@@ -24,7 +24,7 @@ protocol Subscriber: class {
 
 class JSONDatabase: Database {
 
-    // MARK: - Public properties
+    // MARK: - Visible properties
 
     static let shared = JSONDatabase()
 
@@ -55,6 +55,9 @@ class JSONDatabase: Database {
         archive()
         notify()
     }
+
+
+    // MARK: - Lifecycle methods
 
     func load() {
         do {

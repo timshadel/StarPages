@@ -30,7 +30,7 @@
         <!--Individuals-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="IndividualList" customModule="Interview" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="IndividualList" customModule="StarPages" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -43,7 +43,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="IndividualCell" id="7bl-XT-bUI" customClass="IndividualCell" customModule="Interview" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="IndividualCell" id="7bl-XT-bUI" customClass="IndividualCell" customModule="StarPages" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7bl-XT-bUI" id="0E8-iO-gKY">
@@ -78,8 +78,13 @@
                                                         </stackView>
                                                     </subviews>
                                                 </stackView>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="5C3-L1-vqX">
+                                                    <rect key="frame" x="16.5" y="22" width="20" height="20"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="5C3-L1-vqX" firstAttribute="centerX" secondItem="NuB-fD-AiK" secondAttribute="centerX" id="6tN-CG-prU"/>
+                                                <constraint firstItem="5C3-L1-vqX" firstAttribute="centerY" secondItem="NuB-fD-AiK" secondAttribute="centerY" id="7E6-dn-tvk"/>
                                                 <constraint firstItem="r0h-dF-hNm" firstAttribute="top" secondItem="0E8-iO-gKY" secondAttribute="top" id="EMR-SN-2nA"/>
                                                 <constraint firstItem="r0h-dF-hNm" firstAttribute="leading" secondItem="0E8-iO-gKY" secondAttribute="leading" id="d2t-Yb-DLg"/>
                                                 <constraint firstAttribute="bottom" secondItem="r0h-dF-hNm" secondAttribute="bottom" constant="-0.5" id="gzy-g2-WX6"/>
@@ -87,6 +92,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="loadingIndicator" destination="5C3-L1-vqX" id="2lZ-Xr-Ixe"/>
                                             <outlet property="nameLabel" destination="DGJ-1g-e8v" id="Dol-FR-aST"/>
                                             <outlet property="profilePicView" destination="NuB-fD-AiK" id="QUc-lq-Le8"/>
                                             <outlet property="teamLabel" destination="JLS-4q-lpl" id="2Ts-lY-BeK"/>
@@ -141,14 +147,14 @@
                         <constraint firstItem="m57-bi-fnt" firstAttribute="centerX" secondItem="lvu-YB-bEi" secondAttribute="centerX" id="yy6-yg-xS1"/>
                     </constraints>
                 </view>
-                <customObject id="meK-Ex-x8N" customClass="IndividualListDataSource" customModule="Interview" customModuleProvider="target"/>
+                <customObject id="meK-Ex-x8N" customClass="IndividualListDataSource" customModule="StarPages" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="117.59999999999999" y="122.78860569715144"/>
         </scene>
         <!--Details-->
         <scene sceneID="FAT-RZ-4lV">
             <objects>
-                <viewController id="u3s-w7-65c" customClass="IndividualDetails" customModule="Interview" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="u3s-w7-65c" customClass="IndividualDetails" customModule="StarPages" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="c6f-1N-aR7"/>
                         <viewControllerLayoutGuide type="bottom" id="8bt-hr-l2q"/>
